@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {} from 'react';
+import MainHeader from './MainHeader';
+import SubHeader from './SubHeader';
 
-function Sidenav() {
+function Sidenav(props:any) {
+
   return (
-    <div>
-      
+    <div className="sidenav">
+      <MainHeader close={props.close} />
+      <div id="sep"></div>
+      <SubHeader name={"Bubble Sort"} />
     </div>
   );
 }

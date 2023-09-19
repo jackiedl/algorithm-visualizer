@@ -1,24 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* 
+/*
+Base
 Text: #CAD2C5
 in between: #84A98C, #52796F, #354F52
 BG:#2F3E46
 */
+:root{
+  --bg: #2F3E46;
+  --bg-accent: #354F52;
+  --text-color: #CAD2C5;
+  --text-subcolor: #84A98C;
+  --nav-size: 60px;
+  --border: 1px solid #344F52;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
 
-.topnav{
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body::after{
+  content: "";
+  background: url(assets/mainbg.jpg);
+  filter: brightness(60%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/*Navbar*/
+.navbar{
   position: fixed;
   width: 100%;
   top: 0;
@@ -26,34 +53,135 @@ BG:#2F3E46
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #2F3E46;
+  background: var(--bg);
   z-index: 5;
+  user-select: none;
 }
-.topnav-element{
+.navbar-item{
   font-size: 32px;
   float: left;
-  margin: 5px 20px 10px 10px;
-  color: #CAD2C5;
+  margin: 13px 20px 10px 10px;
+  color: var(--text-color);
   text-decoration: none;
 }
-.sidenav-btn{
-  background: none;
-  margin: 0 !important;
-  padding: 12px;
-  border: none;
-  outline: none !important;
-  vertical-align: middle;
+@media only screen and (max-width: 471px){
+  .navbar-item{
+    font-size: 22px !important;
+    margin: 17px 20px 17px 10px;
+  }
 }
-.sidenav-btn:hover{
-  background: #52796F;
-}
-.icon {
+.icon{
   position: relative;
   padding-top: 1px;
   font-size: 33px !important;
   display: inline-flex !important;
   vertical-align: top;
-  color: #CAD2C5;
+  color: #84A98C;
   pointer-events: none;
 }
 
+.icon-btn{
+  pointer-events: visible;
+  cursor: pointer;
+}
+.icon-btn:hover{
+  filter: brightness(1.2);
+}
+
+.sidenav-btn{
+  background: none;
+  border: none;
+  padding: 12px;
+  margin: 0;
+  outline: none !important;
+}
+.sidenav-btn:hover{
+  background: var(--bg-accent);
+}
+
+/*Sidenav*/
+.sidenav{
+  display: block;
+  height: 100%;
+  width: 300px;
+  border: none;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: #1f292e;
+  font-weight: bold;
+  overflow-x: hidden;
+  padding-top: 15px;
+  white-space: nowrap;
+  font-size: 28px;
+  user-select: none;
+}
+.overlay{
+  position: fixed;
+  z-index: 4;
+  left: -50px; 
+  top: 0;
+  right: -50px;
+  bottom: 0;
+  transition: all .2s ease-in-out;  
+}
+
+.sidenav-primary-enter{
+  transform: translateX(-110%);
+}
+.sidenav-primary-enter-active{
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.sidenav-primary-exit-active{
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+#sep{
+  width: 89%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  margin: 8px 0px 10px 0px;
+  background-color: var(--text-color);
+}
+
+.sidenav-title{
+  text-decoration: none;
+  padding: 15px 8px 15px 15px;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.sidenav-title-main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle{
+  padding-left: 65px;
+  font-size: 25px;
+  color: var(--text-subcolor);
+}
+
+.subtitle:hover{
+  background-color: #425661;
+  color: var(--text-color);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+#box{
+  padding-top: 50px;
+  margin-top: 25px;
+  position: relative;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 90%;
+  user-select: none;
+  color: var(--text-color);
+}

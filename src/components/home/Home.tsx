@@ -1,10 +1,20 @@
-import React from 'react';
-import Topnav from '../topnav/Topnav';
+import React, {} from 'react';
+
+import Navbar from '../navbar/Navbar';
 
 function Home() {
+
   return (
     <div>
-      <Topnav />
+        <Navbar  />
+        <div>
+          <div id="box">
+            <div>dropdown menu select algo</div>
+            <div>menu icon to change settings</div>
+            <div>visualizer container</div>
+          </div>
+        </div>
+        <div id="cover"></div>
     </div>
   );
 }
