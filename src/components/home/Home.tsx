@@ -1,19 +1,15 @@
 import React, {} from 'react';
 
 import Navbar from '../navbar/Navbar';
+import Box from '../box/Box';
 
 function Home() {
 
   return (
     <div>
         <Navbar  />
-        <div>
-          <div id="box">
-            <div>dropdown menu select algo</div>
-            <div>menu icon to change settings</div>
-            <div>visualizer container</div>
-          </div>
-        </div>
+        <Box />
+      
         <div id="cover"></div>
     </div>
   );

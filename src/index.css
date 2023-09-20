@@ -138,6 +138,12 @@ a{
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
+.sidenav-close{
+  position: absolute;
+  float: right;
+  top: 30px;
+  left: 255px;
+}
 
 #sep{
   width: 89%;
@@ -156,13 +162,8 @@ a{
   color: var(--text-color);
 }
 
-.sidenav-title-main{
-  display: flex;
-  justify-content: space-between;
-}
-
 .subtitle{
-  padding-left: 65px;
+  padding: 10px 8px 10px 40px;
   font-size: 25px;
   color: var(--text-subcolor);
 }
@@ -174,6 +175,7 @@ a{
   cursor: pointer;
 }
 
+/*Box*/
 #box{
   padding-top: 50px;
   margin-top: 25px;
@@ -184,4 +186,39 @@ a{
   width: 90%;
   user-select: none;
   color: var(--text-color);
+}
+
+.box-menu-slider{
+  display: inline-block;
+  margin-top: 23px;
+  margin-left: 20px;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 17px;
+}
+#slider{
+  appearance: none;
+  max-width: 450px;
+  width: 40vw;
+  height: 5px;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var(--text-color);
+  height: 30px;
+  width: 7px;
+  margin-top: -13px;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  height: 35px;
+  width: 10px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 200px;
+  height: 5px;
+  background: var(--text-subcolor);
 }
