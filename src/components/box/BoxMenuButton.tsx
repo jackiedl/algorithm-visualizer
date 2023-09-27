@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BoxMenuButton(){
+function BoxMenuButton(props:any){
   return(
     <div></div>
   )

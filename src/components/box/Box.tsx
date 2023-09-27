@@ -1,24 +1,33 @@
-import React, {useState} from "react";
+import React from "react";
+import { useAppSelector } from "../../redux/app/hooks";
+import { current } from '../../redux/features/boxSlice';
+
 import BoxVisualizer from "./BoxVisualizer";
 import Slider from "./Slider";
 import BoxMenuButton from "./BoxMenuButton";
 
 function Box(){
-  const [elements, setElements] = useState(100);
+  const name = useAppSelector(current);
 
-  const sliderChange = (e:any) => {
-    setElements(e.currentTarget.value);
-  }
+  // const shuffle = () =>{
+  //   let i = array.length;
+  //   while(i !== 0){
+  //     let j = Math.floor(Math.random() * i--);
+  //     [array[i], array[j]] = [array[j], array[i]];
+  //   }
+  //   updateArray([...array]);
+  // }
+
   return (
     <div id="box">
       <div className="box-menu">
         <div className="box-menu-header">
-          Quick Sort
+          {name}
         </div>
-        <Slider elements={elements} onChange={sliderChange} />
-        <BoxMenuButton />
+        <Slider />
+        <BoxMenuButton/>
       </div>
-      <BoxVisualizer elements={elements}/>
+      <BoxVisualizer />
     </div>
   )
 }
