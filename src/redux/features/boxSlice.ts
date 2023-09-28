@@ -29,11 +29,12 @@ export const boxSlice = createSlice({
   initialState,
   reducers: {
     updateElements: (state, action: PayloadAction<any>) => {
-      let number: number = parseInt(action.payload);
       state.elements = action.payload;
-      state.numberList = [...Array.from(Array(number).keys())];
-
+      state.numberList = [...Array.from(Array(parseInt(action.payload)).keys())];
     },
+    shuffleArray: (state, action: PayloadAction<any>) => {
+      state.numberList = [...action.payload];
+    }
   }
 });
 

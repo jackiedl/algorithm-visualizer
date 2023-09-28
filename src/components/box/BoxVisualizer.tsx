@@ -16,7 +16,7 @@ function BoxVisualizer(){
             style={{
               left:`${idx * (100/element)}%`,
               width:`${100/element}%`,
-              height:`${(idx+1)*(100/element)}%`,
+              height:`${(value+1)*(100/element)}%`,
             }}
           ></div>
         ))
