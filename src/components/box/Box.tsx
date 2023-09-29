@@ -15,8 +15,10 @@ function Box(){
         <div className="box-menu-header">
           {name}
         </div>
-        <Slider />
-        <BoxMenuButton/>
+        <div className="box-menu">
+          <BoxMenuButton/>
+          <Slider />
+        </div>
       </div>
       <BoxVisualizer />
     </div>

@@ -32,9 +32,9 @@ export const boxSlice = createSlice({
       state.elements = action.payload;
       state.numberList = [...Array.from(Array(parseInt(action.payload)).keys())];
     },
-    shuffleArray: (state, action: PayloadAction<any>) => {
+    updateArray: (state, action: PayloadAction<any>) => {
       state.numberList = [...action.payload];
-    }
+    },
   }
 });
 

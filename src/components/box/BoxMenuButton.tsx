@@ -1,33 +1,45 @@
 import React from 'react';
+
+import ShuffleRoundedIcon from '@mui/icons-material/ShuffleRounded';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
 import { useAppSelector, useAppDispatch } from "../../redux/app/hooks";
 import { boxActions, numberList } from '../../redux/features/boxSlice';
-import { getMergeSortAnimation } from '../../ultis/mergesort';
+import { getSelectionAnimation } from '../../ultis/selectionSort';
+import { colorAnimation } from '../../ultis/base';
 
-function BoxMenuButton(props:any){
+function BoxMenuButton(){
   const array = useAppSelector(numberList);
   const dispatch = useAppDispatch();
 
-  const handleOnShuffle = () => {
+  async function handleOnShuffle(){
     let arr = [...array];
+    let animation:any = []
     let i = arr.length;
     while(i !== 0){
       let j = Math.floor(Math.random() * i--);
       [arr[i], arr[j]] = [arr[j], arr[i]];
+      animation.push([i, j]);
     }
-    dispatch(boxActions.shuffleArray(arr));
+    const arrayBars = document.querySelectorAll<HTMLElement>(".bar");
+    await colorAnimation(animation, arrayBars);
+    dispatch(boxActions.updateArray(arr));
   }
 
-  const handleOnPlay = () => {
-    
+  async function handleOnPlay () {
+    const sortedArray = getSelectionAnimation([...array]);
+    const arrayBars = document.querySelectorAll<HTMLElement>(".bar");
+    await colorAnimation(sortedArray.animation, arrayBars);
+    dispatch(boxActions.updateArray(sortedArray.array));
   }
 
   return(
-    <div>
-      <div onClick={handleOnShuffle}>
-        Shuffle
+    <div className="box-menu-icon">
+      <div className="clickable-btn">
+        <ShuffleRoundedIcon className="icon icon-btn" onClick={handleOnShuffle}/> 
       </div>
-      <div onClick={handleOnPlay}>
-        Play
+      <div className="clickable-btn">
+        <PlayArrowIcon className="icon icon-btn" onClick={handleOnPlay}/> 
       </div>
     </div>
   )

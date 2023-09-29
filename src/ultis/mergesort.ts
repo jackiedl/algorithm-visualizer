@@ -1,4 +1,8 @@
-export function getMergeSortAnimation(array:any){
+export function playMergeAnimation(){
+
+}
+
+function getMergeSortAnimation(array:any){
   const animations:any = [];
   if(array.length <= 1) return array;
   const auxiliaryArray = [...array];

@@ -88,15 +88,16 @@ a{
   filter: brightness(1.2);
 }
 
-.sidenav-btn{
+.clickable-btn{
   background: none;
   border: none;
   padding: 12px;
   margin: 0;
   outline: none !important;
 }
-.sidenav-btn:hover{
+.clickable-btn:hover{
   background: var(--bg-accent);
+  cursor: pointer;
 }
 
 /*Sidenav*/
@@ -187,14 +188,22 @@ a{
   user-select: none;
   color: var(--text-color);
 }
-.box-menu{
+.box-menu, .box-menu-icon{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
   white-space: nowrap;
+}
+@media only screen and (max-width: 852px){
+  .box-menu{
+    flex-direction: column;
+  }
+  .box-menu-icon{
+    justify-content: start;
+  }
 }
 
 .box-menu-header{
-  
   font-size: 3em;
   font-weight: bolder;
 }
@@ -204,13 +213,12 @@ a{
   margin-top: 13px;
   margin-left: 20px;
   color: var(--text-color);
-  text-align: center;
   font-size: 17px;
 }
 #slider{
   appearance: none;
   max-width: 450px;
-  width: 40vw;
+  width: 50vw;
   height: 5px;
   outline: none;
 }
@@ -233,13 +241,19 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 5px;
   background: var(--text-subcolor);
 }
-
 #bar-container{
   position: relative;
-  margin: 0px 30px 0px 0px;
+  margin: 15px 30px 0px 0px;
   height: 74vh;
   width: 100%;
 }
+
+@media only screen and (max-width: 852px){
+  #bar-container{
+    height: 50vh;
+  }
+}
+
 .bar{
   padding-right: 2px;
   position: absolute;
@@ -247,5 +261,12 @@ input[type=range]::-webkit-slider-runnable-track {
   left: 0;
   width: 5%;
   height: 10%;
-  background: linear-gradient(0deg, #2F3E46 5%, #CAD2C5 100%);
+  background: linear-gradient(to top, #0250c5 0%, #843fd4 100%);
+}
+
+.bar-red{
+  background: red;
+}
+.bar-blue{
+  background: blue;
 }
