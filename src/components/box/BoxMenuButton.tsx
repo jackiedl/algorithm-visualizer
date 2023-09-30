@@ -34,12 +34,12 @@ function BoxMenuButton(){
   }
 
   return(
-    <div className="box-menu-icon">
+    <div className="box-menu-icons">
       <div className="clickable-btn">
-        <ShuffleRoundedIcon className="icon icon-btn" onClick={handleOnShuffle}/> 
+        <ShuffleRoundedIcon className="icon icon-btn menu-btn" onClick={handleOnShuffle}/> 
       </div>
       <div className="clickable-btn">
-        <PlayArrowIcon className="icon icon-btn" onClick={handleOnPlay}/> 
+        <PlayArrowIcon className="icon icon-btn menu-btn" onClick={handleOnPlay}/> 
       </div>
     </div>
   )
