@@ -9,7 +9,6 @@ function Home() {
     <div>
         <Navbar  />
         <Box />
-      
         <div id="cover"></div>
     </div>
   );

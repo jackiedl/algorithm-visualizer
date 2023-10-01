@@ -4,11 +4,11 @@ import ShuffleRoundedIcon from '@mui/icons-material/ShuffleRounded';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import { useAppSelector, useAppDispatch } from "../../redux/app/hooks";
-import { boxActions, numberList } from '../../redux/features/boxSlice';
-import { getSelectionAnimation } from '../../ultis/selectionSort';
-import { colorAnimation } from '../../ultis/base';
+import { boxActions, current, numberList } from '../../redux/features/boxSlice';
+import { getAnimation, colorAnimation } from '../../ultis/base';
 
 function BoxMenuButton(){
+  const algorithm = useAppSelector(current);
   const array = useAppSelector(numberList);
   const dispatch = useAppDispatch();
 
@@ -27,10 +27,10 @@ function BoxMenuButton(){
   }
 
   async function handleOnPlay () {
-    const sortedArray = getSelectionAnimation([...array]);
+    const sortedArray = getAnimation(algorithm, [...array]);
     const arrayBars = document.querySelectorAll<HTMLElement>(".bar");
-    await colorAnimation(sortedArray.animation, arrayBars);
-    dispatch(boxActions.updateArray(sortedArray.array));
+    await colorAnimation(sortedArray?.animation, arrayBars);
+    dispatch(boxActions.updateArray(sortedArray?.array));
   }
 
   return(

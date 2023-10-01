@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
+
+import { useAppSelector, useAppDispatch } from "../../redux/app/hooks";
 
 import { CSSTransition } from 'react-transition-group';
 import Sidenav from '../sidenav/Sidenav';
 import MenuButton from './MenuButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { navActions, isOpen } from '../../redux/features/navSlice';
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
+  const open = useAppSelector(isOpen);
 
+  const dispatch = useAppDispatch();
+  
   return (
     <div className="navbar">
-      <MenuButton icon={<MenuIcon className="icon icon-btn"/>} open={()=>{setOpen(!open)}}/>
+      <MenuButton />
       <a href="/" className="navbar-item">
         ALGORITHM VISUALIZER
       </a>
@@ -22,9 +26,9 @@ function Navbar() {
         timeout={500}
         classNames="sidenav-primary"
       >
-        <Sidenav close={() => setOpen(!open)}/>
+        <Sidenav/>
       </CSSTransition>
-      {open ? <div className="overlay" onClick={() => setOpen(!open)}></div> : null}
+      {open ? <div className="overlay" onClick={() => dispatch(navActions.setOpen())}></div> : null}
     </div>
   );
 }
