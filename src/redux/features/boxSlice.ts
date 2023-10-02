@@ -8,7 +8,7 @@ interface BoxState{
 }
 
 const initialState: BoxState = {
-  current: "Selection Sort",
+  current: "Merge Sort",
   elements: 100,
   numberList: Array.from(Array(100).keys()),
 }
