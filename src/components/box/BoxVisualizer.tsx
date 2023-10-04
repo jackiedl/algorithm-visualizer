@@ -11,8 +11,8 @@ function BoxVisualizer(){
       {
         array.map((value:number, idx:number) => (
           <div
-            className="bar"
-            key={idx}
+            className="bar "
+            key={value + " : " + idx}
             style={{
               left:`${idx * (100/element)}%`,
               width:`${100/element}%`,

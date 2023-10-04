@@ -30,7 +30,7 @@ function BoxMenuButton(){
     const sortedArray = getAnimation(algorithm, [...array]);
     const arrayBars = document.querySelectorAll<HTMLElement>(".bar");
     await colorAnimation(sortedArray?.animation, arrayBars);
-    //dispatch(boxActions.updateArray(sortedArray?.array));
+    dispatch(boxActions.updateArray(sortedArray?.array));
   }
 
   return(

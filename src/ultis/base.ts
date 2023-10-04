@@ -1,4 +1,6 @@
+import { getBubbleAnimation } from "./bubbleSort";
 import { getMergeAnimation } from "./mergeSort";
+import { getQuickAnimation } from "./quickSort";
 import { getSelectionAnimation } from "./selectionSort";
 
 const RED = "bar-red";
@@ -23,15 +25,14 @@ export async function colorAnimation(animations: any, arrayBars: any){
     resetColor(arrayBars[barTwo]);
   }
 }
-
 export function getAnimation(algorithm:string, elements: number[]){
-  if (algorithm === "Bubble Sort") return {animation: [[0,0]], array: [...elements]}
+  if (algorithm === "Bubble Sort") return getBubbleAnimation([...elements]);
 
   if (algorithm === "Merge Sort") return getMergeAnimation([...elements]);
 
   if (algorithm === "Selection Sort") return getSelectionAnimation([...elements]);
 
-  if (algorithm === "Quick Sort") return {animation:[[0,0]], array: [...elements]}
+  if (algorithm === "Quick Sort") return getQuickAnimation([...elements]);
 
   if (algorithm === "Binary Search") return {animation:[[0,0]], array: [...elements]}
 }
