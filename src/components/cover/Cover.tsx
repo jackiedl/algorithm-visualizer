@@ -1,10 +1,10 @@
 import React from "react";
 import { useAppSelector } from "../../redux/app/hooks";
-import { complexity } from "../../redux/features/boxSlice";
+import { algorithm } from "../../redux/features/boxSlice";
 
 
 function Cover(){
-  const oNotation = useAppSelector(complexity);
+  const alg = useAppSelector(algorithm);
 
   return (
     <div id="cover">
@@ -12,7 +12,7 @@ function Cover(){
         <div className="sort-description">
           <div className="">DESCRIPTION</div>
           {
-            oNotation.description.map((value:string, idx:number) => (
+            alg.description.map((value:string, idx:number) => (
               <p key={idx}>{value}</p>
             ))
           }
@@ -23,26 +23,37 @@ function Cover(){
             <tbody>
               <tr>
                 <th>Average Complexity</th>
-                <td>{oNotation.average}</td>
+                <td>{alg.average}</td>
               </tr>
               <tr>
                 <th>Best Case</th>
-                <td>{oNotation.best}</td>
+                <td>{alg.best}</td>
               </tr>
               <tr>
                 <th>Worst Case</th>
-                <td>{oNotation.worst}</td>
+                <td>{alg.worst}</td>
               </tr>
               <tr>
                 <th>Space Complexity</th>
-                <td>{oNotation.space}</td>
+                <td>{alg.space}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       <div className="menu-box">
-        
+        <div>
+          IMPLEMENTATION
+        </div>
+        <div id="menu-code">
+          <div id="code-content">
+            <pre>
+              <code id="code">
+                {alg.code}
+              </code>
+            </pre>
+          </div>
+        </div>
       </div>
   </div>
   )

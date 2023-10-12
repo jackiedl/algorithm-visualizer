@@ -16,7 +16,7 @@ const initialState: NavState = {
     "Quick Sort",
   ],
   searchAlgorithms:[
-    "Binary Search",
+    //"Binary Search",
   ]
 }
 

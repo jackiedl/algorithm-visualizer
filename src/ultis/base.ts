@@ -34,7 +34,7 @@ export function getAnimation(algorithm:string, elements: number[]){
 
   if (algorithm === "Quick Sort") return getQuickAnimation([...elements]);
 
-  if (algorithm === "Binary Search") return {animation:[[0,0]], array: [...elements]}
+  // if (algorithm === "Binary Search") return {animation:[[0,0]], array: [...elements]}
 }
 
 function changeRed(i:HTMLElement){
